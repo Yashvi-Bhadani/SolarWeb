@@ -18,7 +18,7 @@ if (!existsSync(dataDir)) {
   mkdirSync(dataDir, { recursive: true });
 }
 const dbPath = process.env.DATABASE_PATH || path.join(dataDir, "contact.db");
-const frontendDist = path.join(__dirname, "../frontend/dist");
+const frontendDist = process.env.FRONTEND_DIST_PATH || path.join(__dirname, "../frontend/dist");
 
 async function openDatabase() {
   const db = await open({
@@ -306,6 +306,10 @@ app.get("/api/submissions", async (req, res) => {
 
 app.get("/api/health", (req, res) => {
   return res.json({ status: "ok" });
+});
+
+app.get("/ping", (req, res) => {
+  return res.send("pong");
 });
 
 if (existsSync(frontendDist)) {
