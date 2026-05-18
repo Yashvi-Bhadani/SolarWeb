@@ -25,6 +25,10 @@ solar-react/
 └── README.md               # This file
 ```
 
+## Deploy on Railway
+
+See **[RAILWAY.md](./RAILWAY.md)** for step-by-step deployment (single service: React + API + email).
+
 ## Quick Start
 
 ### 1. Frontend Setup

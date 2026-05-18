@@ -4,6 +4,7 @@ import nodemailer from "nodemailer";
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 import dotenv from "dotenv";
+import { existsSync, mkdirSync } from "fs";
 import { fileURLToPath } from "url";
 import path from "path";
 
@@ -11,7 +12,13 @@ dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dbPath = path.join(__dirname, "contact.db");
+const dataDir =
+  process.env.RAILWAY_VOLUME_MOUNT_PATH || process.env.DATABASE_DIR || __dirname;
+if (!existsSync(dataDir)) {
+  mkdirSync(dataDir, { recursive: true });
+}
+const dbPath = process.env.DATABASE_PATH || path.join(dataDir, "contact.db");
+const frontendDist = path.join(__dirname, "../frontend/dist");
 
 async function openDatabase() {
   const db = await open({
@@ -301,10 +308,24 @@ app.get("/api/health", (req, res) => {
   return res.json({ status: "ok" });
 });
 
-const port = process.env.PORT || 5000;
+if (existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    return res.sendFile(path.join(frontendDist, "index.html"));
+  });
+  console.log(`Serving frontend from ${frontendDist}`);
+} else {
+  console.warn(`Frontend build not found at ${frontendDist}. API only mode.`);
+}
 
-const server = app.listen(port, () => {
-  console.log(`Backend server listening on http://localhost:${port}`);
+const port = Number(process.env.PORT) || 5000;
+const host = "0.0.0.0";
+
+const server = app.listen(port, host, () => {
+  console.log(`Server listening on http://${host}:${port}`);
 });
 
 server.on("error", (err) => {
