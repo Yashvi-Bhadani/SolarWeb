@@ -1,0 +1,426 @@
+
+.libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-baskerville-bold {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-baskerville-regular-italic {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* General Layout */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-background);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+    font-family: "Libre Baskerville", serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.navbar-links a {
+  margin-left: 1.5rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: var(--color-primary);
+}
+
+
+/* Hero Section */
+.hero-section {
+  background-image: url(../assets/solar-hero.jpg);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+
+.hero-image-overlay {
+  
+  position: absolute;
+  background-image: linear-gradient(to right, hsl(210 100% 20% / .95) , hsl(210 100% 20% / .8) , transparent);
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.hero-gradient-overlay {
+  /* color: black; */
+  position: absolute;
+  inset: 0;
+  /* background-image: var(--color-gradient-hero); */
+}
+
+.hero-content-container 
+{
+  
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  /* margin-left: auto; */
+  margin-right: auto;
+  padding-left: 4rem;
+  padding-right: 1rem;
+  padding-top: 0;
+  margin-top: -150px;
+}
+
+
+.hero-text-content {
+  display: flex;
+  flex-direction: row;
+  max-width: 42rem;
+  color: var(--color-primary-foreground);
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+.hero-buttons {
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn-hero {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.btn-hero:hover {
+  background-color: #033bab;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-primary-foreground);
+  color: var(--color-primary-foreground);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary-foreground);
+  color: var(--color-primary);
+}
+
+
+/* General Section Styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-muted-foreground);
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Benefits Section */
+.benefits-section {
+  padding: 5rem 0;
+  background-color: rgba(241, 245, 249, 0.3); /* bg-muted/30 */
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+
+/* Card Styles */
+.card {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-0.25rem);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.icon-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-image: var(--color-gradient-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary-foreground);
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: var(--color-muted-foreground);
+}
+
+
+/* How It Works Section */
+.how-it-works-section {
+  padding: 5rem 0;
+}
+
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .how-it-works-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .how-it-works-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.how-it-works-item {
+  position: relative;
+}
+
+.how-it-works-step {
+  font-size: 3.75rem;
+  font-weight: 700;
+  color: #C1E1C1;
+  margin-bottom: 1rem;
+}
+
+.how-it-works-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.how-it-works-description {
+  color: var(--color-muted-foreground);
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 5rem 0;
+  background-image: var(--color-gradient-primary);
+  color: var(--color-primary-foreground);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .stat-number {
+    font-size: 3rem;
+  }
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* CTA Section */
+.cta-section {
+  padding: 5rem 0;
+}
+
+.cta-card {
+  background-image: var(--color-gradient-hero);
+  color: var(--color-primary-foreground);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-strong */
+  border-radius: 0.5rem;
+}
+
+.cta-card-content {
+  padding: 3rem;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cta-title {
+    font-size: 2.25rem;
+  }
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-outline-cta {
+  background-color: transparent;
+  border: 1px solid var(--color-primary-foreground);
+  color: var(--color-primary-foreground);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn-outline-cta:hover {
+  background-color: var(--color-primary-foreground);
+  color: var(--color-primary);
+}
+
+/* Footer */
+.footer {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}

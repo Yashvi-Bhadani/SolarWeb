@@ -1,0 +1,114 @@
+/* Base and Layout */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+.footer {
+  background-color: hsl(210 100% 20%); /* A dark color for the footer */
+  color: #f0f4f8; /* A light, off-white text color */
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 0.5fr));
+  gap: 0.5rem;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* COMPANY LOGO */
+
+.company-logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.company-logo h3{
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.company-icon{
+  width: 34px;
+  height: 34px;
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.company-description {
+  color: rgba(240, 244, 248, 0.8);
+  text-align: left;
+}
+
+/* Headings and Links */
+.footer-heading {
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link{
+  text-decoration: none;
+  color: rgba(240, 244, 248, 0.8);
+  transition: 0.3s;
+  font-size: 1.3rem;
+}
+
+.footer-link:hover{
+  color: #f59e0b;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: rgba(240, 244, 248, 0.8);
+  /* padding-left: 8rem; */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Copyright Section */
+.copyright-section {
+  border-top: 1px solid rgba(240, 244, 248, 0.2);
+  margin-top: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+  color: rgba(240, 244, 248, 0.6);
+}

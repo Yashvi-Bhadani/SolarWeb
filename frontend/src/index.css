@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@import "./styles/root.css";
+@import "./styles/navbar.css";
+@import "./styles/footer.css";
+@import "./styles/index2.css";
+@import "./styles/aboutus.css";
+@import "./styles/contactus.css";
+@import "./styles/ourWork.css";
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body,#root{
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  overflow-x:hidden;
+  background-color:#f8fafc;
+  font-family: Arial, Helvetica, sans-serif;
+}

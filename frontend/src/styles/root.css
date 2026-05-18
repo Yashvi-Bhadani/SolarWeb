@@ -1,0 +1,14 @@
+:root {
+  --color-background: #fff;
+  --color-text: #0f172a;
+  --color-primary: hsl( 210 100% 20%); /* A yellow/orange color */
+  --color-primary-foreground: hsl(0 ,0%, 100%);
+  --color-secondary: hsl(142 76% 36%); /* A gray color */
+  --color-secondary-foreground: hsl(0 0% 100%);
+  --color-muted: hsl(210 40% 96%);
+  --color-muted-foreground: hsl(210 20% 45%);
+  --color-gradient-primary:  linear-gradient(135deg, hsl(210 100% 20%), hsl(210 100% 35%));
+  --color-gradient-secondary: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 50%));
+  --color-gradient-hero:  linear-gradient(135deg, hsl(210 100% 20%) 0%, hsl(210 100% 35%) 50%, hsl(142 76% 36%) 100%);
+    /* --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
+}
