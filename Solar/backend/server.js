@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import nodemailer from "nodemailer";
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 import dotenv from "dotenv";
@@ -63,41 +62,36 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const emailUser = process.env.EMAIL_USER;
-const emailPass = process.env.EMAIL_PASS;
-const emailHost = process.env.EMAIL_HOST || "smtp.gmail.com";
-const emailPort = Number(process.env.EMAIL_PORT || 587);
-const emailSecure = process.env.EMAIL_SECURE === "true";
-const emailFrom = process.env.EMAIL_FROM || emailUser;
-const companyEmail = process.env.COMPANY_EMAIL || "raghav.enterpris1@gmail.com";
-const canSendEmail = Boolean(emailUser && emailPass);
+const resendApiKey = process.env.RESEND_API_KEY;
+const emailFrom = process.env.EMAIL_FROM || "Solar Contact <no-reply@your-domain.com>";
+const companyEmail = process.env.COMPANY_EMAIL || "bhadaniyashvi10@gmail.com";
+const canSendEmail = Boolean(resendApiKey);
 
 async function sendCompanyEmail({ subject, text, html, replyTo }) {
   if (!canSendEmail) return false;
-  await transporter.sendMail({
-    from: emailFrom,
-    to: companyEmail,
-    replyTo: replyTo || undefined,
-    subject,
-    text,
-    html,
-  });
-  return true;
-}
 
-let transporter = null;
-if (canSendEmail) {
-  transporter = nodemailer.createTransport({
-    host: emailHost,
-    port: emailPort,
-    secure: emailSecure,
-    auth: {
-      user: emailUser,
-      pass: emailPass,
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${resendApiKey}`,
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      from: emailFrom,
+      to: [companyEmail],
+      subject,
+      text,
+      html,
+      reply_to: replyTo || undefined,
+    }),
   });
-} else {
-  console.warn("WARNING: EMAIL_USER or EMAIL_PASS is missing in backend/.env. Contact form submissions will still be saved, but email delivery is disabled.");
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Resend email failed: ${response.status} ${body}`);
+  }
+
+  return true;
 }
 
 app.post("/api/contact", async (req, res) => {

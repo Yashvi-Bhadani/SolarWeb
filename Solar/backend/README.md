@@ -15,7 +15,7 @@ A Node.js + Express backend server that handles contact form submissions with em
 
 - Node.js (v18 or higher)
 - npm or yarn
-- SMTP email credentials (Gmail, SendGrid, or any SMTP provider)
+- A Resend API key for email delivery
 
 ## Installation
 
@@ -34,14 +34,11 @@ A Node.js + Express backend server that handles contact form submissions with em
    cp .env.example .env
    ```
 
-4. Update `.env` with your SMTP credentials:
+4. Update `.env` with your Resend API key:
    ```env
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-app-password
-   EMAIL_FROM="Solar Company <your-email@gmail.com>"
-   EMAIL_HOST=smtp.gmail.com
-   EMAIL_PORT=587
-   EMAIL_SECURE=false
+   RESEND_API_KEY=your-resend-api-key
+   EMAIL_FROM="Solar Contact <no-reply@your-domain.com>"
+   COMPANY_EMAIL=raghav.enterpris1@gmail.com
    PORT=5000
    ```
 
@@ -127,12 +124,9 @@ CREATE TABLE contact_requests (
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `EMAIL_USER` | Yes | - | SMTP username/email |
-| `EMAIL_PASS` | Yes | - | SMTP password/app-specific password |
-| `EMAIL_FROM` | No | EMAIL_USER | Display name and from address |
-| `EMAIL_HOST` | No | smtp.gmail.com | SMTP server hostname |
-| `EMAIL_PORT` | No | 587 | SMTP server port |
-| `EMAIL_SECURE` | No | false | Use TLS/SSL (true/false) |
+| `RESEND_API_KEY` | Yes | - | API key used to send email through Resend |
+| `EMAIL_FROM` | No | `Solar Contact <no-reply@your-domain.com>` | Display name and from address |
+| `COMPANY_EMAIL` | No | `raghav.enterpris1@gmail.com` | Recipient address for notifications |
 | `PORT` | No | 5000 | Server port |
 
 ## Troubleshooting
