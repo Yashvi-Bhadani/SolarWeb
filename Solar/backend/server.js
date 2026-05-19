@@ -18,7 +18,9 @@ if (!existsSync(dataDir)) {
   mkdirSync(dataDir, { recursive: true });
 }
 const dbPath = process.env.DATABASE_PATH || path.join(dataDir, "contact.db");
-const frontendDist = process.env.FRONTEND_DIST_PATH || path.join(__dirname, "../frontend/dist");
+const frontendDist = process.env.FRONTEND_DIST_PATH || path.join(__dirname, "..", "frontend", "dist");
+console.log("Looking for frontend at:", frontendDist);
+console.log("Frontend exists:", existsSync(frontendDist));
 
 async function openDatabase() {
   const db = await open({
