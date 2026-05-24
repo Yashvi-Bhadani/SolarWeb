@@ -1,11 +1,13 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useLanguage } from "../context/LanguageContext";
+import founderImg from "../assets/vishal.png";
 
 import "../styles/navbar.css";
 import "../styles/footer.css";
 import "../styles/root.css";
 import "../styles/aboutus.css";
+
 
 function About() {
   const { t } = useLanguage();
@@ -55,7 +57,7 @@ function About() {
 
         {/* OUR STORY */}
 
-        <section
+        <section className="ourStory"
           style={{
             paddingTop: "70px",
             paddingBottom: "70px",
@@ -111,7 +113,7 @@ function About() {
 
         {/* VALUES */}
 
-        <section
+        <section className="values"
           style={{
             paddingBottom: "80px",
           }}
@@ -242,7 +244,7 @@ function About() {
 
         {/* LEADERSHIP */}
 
-        <section
+        <section className="leadership"
           style={{
             paddingBottom: "80px",
           }}
@@ -261,37 +263,19 @@ function About() {
                 fontWeight: "700",
               }}
             >
-              Our Leadership
+              Founder
             </h2>
 
             <div className="team-grid">
               <div className="about-card">
                 <div className="about-card-content">
-                  <div className="avatar-placeholder"></div>
-
-                  <h3>Founder & CEO</h3>
-
-                  <p>15+ years in renewable energy</p>
-                </div>
-              </div>
-
-              <div className="about-card">
-                <div className="about-card-content">
-                  <div className="avatar-placeholder"></div>
-
-                  <h3>Chief Technology Officer</h3>
-
-                  <p>Solar engineering expert</p>
-                </div>
-              </div>
-
-              <div className="about-card">
-                <div className="about-card-content">
-                  <div className="avatar-placeholder"></div>
-
-                  <h3>Head of Operations</h3>
-
-                  <p>500+ installations managed</p>
+                  <img
+                    src={founderImg}
+                    alt="Founder"
+                    className="founder-image"
+                  />
+                  <h3>Director</h3>
+                  <p>5+ years in renewable energy</p>
                 </div>
               </div>
             </div>

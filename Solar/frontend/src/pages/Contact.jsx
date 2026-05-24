@@ -125,15 +125,14 @@ function Contact() {
             }}
           >
             <div
-              className="grid gap-8"
+              className="contact-grid grid gap-8"
               style={{
-                gridTemplateColumns: "320px 1fr",
                 alignItems: "start",
               }}
             >
               {/* LEFT SIDE */}
 
-              <div className="space-y-6">
+              <div className="left-column space-y-6">
                 {/* PHONE */}
 
                 <div className="info-card rounded-xl border bg-card text-card-foreground shadow-sm">
@@ -201,7 +200,7 @@ function Contact() {
                     <h3 className="font-bold mb-2">Email</h3>
 
                     <p className="text-muted-foreground">
-                      raghav.enterpris1@gmail.com
+                      raghav.sales955@gmail.com
                     </p>
 
                     <p className="text-sm text-muted-foreground mt-1">
@@ -241,7 +240,7 @@ function Contact() {
                     </p>
 
                     <p className="text-muted-foreground">
-                      Outer Ring Road, Surat, Gujarat 394326
+                      Outer Ring Road, Surat, Gujarat 395013
                     </p>
                   </div>
                 </div>
@@ -249,7 +248,7 @@ function Contact() {
 
               {/* RIGHT SIDE FORM */}
 
-              <div>
+              <div className="right-column">
                 <div className="form-card rounded-xl border bg-card text-card-foreground shadow-strong">
                   <div className="card-spacing">
                     <h2>Send Us a Message</h2>
@@ -346,7 +345,8 @@ function Contact() {
               }}
             >
               <iframe
-                src="https://www.google.com/maps?q=Khadsad+Road+Surat&output=embed"
+                src="https://www.google.com/maps?q=https://maps.app.goo.gl/wRTAyZnuvN1HdjN69&output=embed"
+                src="https://www.google.com/maps?q=Raghav+Nextgen+Energy+Pvt+Ltd+Surat&output=embed"
                 width="100%"
                 height="480"
                 style={{

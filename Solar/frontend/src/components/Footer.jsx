@@ -52,7 +52,7 @@ function Footer() {
             <h3 className="footer-heading">{t("footer.contactInfo")}</h3>
             <div className="contact-info">
               <div className="contact-item">📞 +91 95588 95561</div>
-              <div className="contact-item">✉️ raghav.enterpris1@gmail.com</div>
+              <div className="contact-item">✉️ raghav.sales955@gmail.com</div>
               <div className="contact-item">
                 📍 30 shree campus, sardar chowk to Khadsad Road, Outer Ring Road,
                 Surat, Gujarat 394326

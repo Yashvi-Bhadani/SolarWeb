@@ -1,17 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 import "../styles/navbar.css";
 import { useLanguage } from "../context/LanguageContext";
 
 import logo from "../assets/Raghav Solar_Final Logo-01.jpeg";
 
+
 function Navbar() {
 
   const location = useLocation();
   const { t, lang, setLang } = useLanguage();
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="navbar" id="myTopnav">
+    <header className={`navbar ${open ? "responsive" : ""}`}>
 
       <div className="navbar-container">
 
@@ -23,7 +26,6 @@ function Navbar() {
               className="img1"
               src={logo}
               alt="Raghav Solar Logo"
-              width="70"
             />
 
           </div>
@@ -66,6 +68,9 @@ function Navbar() {
           >
             {t('nav.savings')}
           </Link>
+        </nav>
+
+        <div className="mobile-actions">
           <div className="navbar-right">
             <select
               value={lang}
@@ -73,10 +78,20 @@ function Navbar() {
               className="navbar-lang-select"
               aria-label="Language selector"
             >
-              <option value="en">EN</option>
+              <option value="en">ENGLISH</option>
               <option value="gu">ગુજરાતી</option>
             </select>
-          </div>        </nav>
+          </div>
+
+          <button
+            className="icon"
+            aria-label="Toggle navigation"
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+            type="button"
+          >
+          </button>
+        </div>
 
       </div>
 

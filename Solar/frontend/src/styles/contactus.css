@@ -153,12 +153,37 @@ cubic-bezier(.4, 0, .2, 1);
   margin: 0 auto;
 }
 
+/* main grid for contact layout */
+#contact-page .contact-grid{
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
 #contact-page .left-column{
   width: 320px;
 }
 
 #contact-page .right-column{
   width: 100%;
+}
+
+/* Responsive: stack columns and show form first on small screens */
+@media (max-width: 770px) {
+  #contact-page .contact-grid{
+    grid-template-columns: 1fr;
+  }
+
+  /* place the form (right-column) before left-column */
+  #contact-page .right-column{ grid-row: 1; }
+  #contact-page .left-column{ grid-row: 2; }
+
+  /* full width adjustments */
+  #contact-page .left-column,
+  #contact-page .right-column{
+    width: 100%;
+  }
 }
 
 #contact-page .info-card{
