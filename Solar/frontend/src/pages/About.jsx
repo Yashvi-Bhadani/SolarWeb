@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useLanguage } from "../context/LanguageContext";
-import founderImg from "../assets/vishal.png";
+import founderImg from "../assets/vishal.jpeg";
 
 import "../styles/navbar.css";
 import "../styles/footer.css";
